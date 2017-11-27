@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.hezecom.baptistsc" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" versionCode="1">
-    <name>Baptist Sunday School Lessons</name>
+    <name>Baptist Sunday School</name>
     <description>
         Sunday School Lessons for Baptist Convention.
     </description>
@@ -42,6 +42,7 @@
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <platform name="android">
+        <splash src="splash.png" />
         <icon density="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="res/icons/android/drawable-hdpi-icon.png" />
@@ -62,6 +63,7 @@
         <splash density="port-xxxhdpi" src="res/screens/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <platform name="ios">
+        <splash src="splash.png" />
         <icon height="57" platform="ios" src="res/icons/ios/icon.png" width="57" />
         <icon height="114" platform="ios" src="res/icons/ios/icon@2x.png" width="114" />
         <icon height="40" platform="ios" src="res/icons/ios/icon-40.png" width="40" />
