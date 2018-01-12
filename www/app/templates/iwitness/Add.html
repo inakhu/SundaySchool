@@ -1,0 +1,40 @@
+<form name="HTSSignup">
+    <ion-view view-title="Book Appointment">
+        <ion-content class="padding">
+
+            <div class="row responsive-sm padding remvoeBP">
+                <div class="col">
+                    <div class="list">
+                        <input type="hidden" ng-model="data.post_type" name="post_type" >
+                        <input type="hidden" ng-model="data.post_status" name="post_status" >
+                        <input type="hidden" ng-model="data.post_image" name="post_image">
+
+                        <h4 class="text-center">Want to have a discussion with the church management? Book an appointment right away.</h4>
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Name</span>
+                            <input type="text" ng-model="data.post_title" name="post_title" placeholder="Enter your name" required>
+                        </label>
+
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Phone</span>
+                            <input type="text" ng-model="data.phone" name="phone" placeholder="Enter your phone number" required>
+                        </label>
+
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Email</span>
+                            <input type="text" ng-model="data.post_link" name="post_link" placeholder="example@gmail.com" required>
+                        </label>
+
+                        <label class="item item-input item-stacked-label">
+                            <span class="input-label">Description</span>
+                            <textarea ng-model="data.post_description" name="post_description" placeholder="Description"></textarea>
+                        </label>
+                    </div>
+
+                    <div class="loginButton"><button class="button ion-person button-block button-calm" ng-click="iWitnessForm()"> Submit </button>  </div>
+                </div>
+            </div>
+
+        </ion-content>
+    </ion-view>
+</form>

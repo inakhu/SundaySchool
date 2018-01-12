@@ -6,6 +6,8 @@ angular.module('HezecomApp',[
     'ionic-modal-select',
     'ion-datetime-picker',
     'ion-floating-menu',
+    'yaru22.angular-timeago',
+    'ngStorage',
     'htsApp.controllers',
     'htsApp.services',
     'htsApp.constants'
@@ -57,6 +59,16 @@ angular.module('HezecomApp',[
                 text += possible.charAt(Math.floor(Math.random() * possible.length));
             return text;
         }
+    })
+
+    .config(function ($sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist(['self', new RegExp('^(http?):\/\/(w{3}.)?baptist\.hezecom\.com/.+$')]);
+    })
+
+    .filter('validUrl', function ($sce) {
+        return function(url) {
+            return $sce.trustAsResourceUrl(url);
+        };
     })
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -152,6 +164,67 @@ angular.module('HezecomApp',[
                         controller: 'OptionsCtrl'
                     }
                 }
+            })
+            /*NEWS*/
+            .state('app.news', {
+                url: '/news',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/templates/news/headlines.html',
+                        controller: 'NewsCtrl'
+                    }
+                },
+                authStatus: false
+            })
+            .state('app.newsdetails', {
+                url: '/news/:id',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/templates/news/news-details.html',
+                        controller: 'NewsDetails'
+                    }
+                },
+                authStatus: false
+            })
+            .state('app.iwitnessadd', {
+                url: '/iwitness/add/new',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/templates/iwitness/Add.html',
+                        controller: 'iWitnessCtrl'
+                    }
+                },
+                authStatus: false
+            })
+            .state('app.prayer', {
+                url: '/iwitness/prayer/new',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/templates/iwitness/Add2.html',
+                        controller: 'iWitnessCtrl'
+                    }
+                },
+                authStatus: false
+            })
+            .state('app.events', {
+                url: '/events',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/templates/events/View.html',
+                        controller: 'EventsCtrl'
+                    }
+                },
+                authStatus: false
+            })
+            .state('app.eventsDetails', {
+                url: '/events/:id',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'app/templates/events/Details.html',
+                        controller: 'EventsDetails'
+                    }
+                },
+                authStatus: false
             });
         $urlRouterProvider.otherwise('/app/dashboard');
     });
