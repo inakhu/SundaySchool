@@ -1,17 +1,9 @@
-
-app.controller('iWitnessCtrl', function($scope,$localStorage, $stateParams , HTSServices,APP_SERVER, $ionicPopup,$ionicLoading,$state) {
-
+app.controller('FormsCtrl', function($scope, $stateParams , HTSServices,APP_SERVER, $ionicPopup,$ionicLoading) {
     /*add*/
     $scope.data = {};
-    $scope.data.post_type='iwitness';
-    $scope.data.post_status='Draft';
-    //$scope.data.post_image='video.jpg';
-    $scope.data.post_image=$localStorage.filename;
-
-
-    $scope.iWitnessForm = function () {
+    $scope.ProcessForm = function () {
         $ionicLoading.show({template: 'processing...'});
-        HTSServices.HezecomPostNewInfo('iwitness/api/add/'+APP_SERVER.apikey, $scope.data)
+        HTSServices.HezecomPostNewInfo('contact/api/'+APP_SERVER.apikey, $scope.data)
             .success(function (data) {
                 if (data.errors) {
                     $ionicPopup.alert({
@@ -24,8 +16,6 @@ app.controller('iWitnessCtrl', function($scope,$localStorage, $stateParams , HTS
                         title: 'Success Message:',
                         template: data.message
                     });
-                    $localStorage.filename='';
-                    $state.go('app.iwitness');
                     $ionicLoading.hide();
                 }
             });

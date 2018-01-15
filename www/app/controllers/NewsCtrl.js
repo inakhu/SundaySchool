@@ -12,8 +12,6 @@ app.controller('NewsCtrl', function($scope ,$state, HTSServices, $ionicFilterBar
         HTSServices.HezecomGetOne('news/api/'+APP_SERVER.apikey).success(function (data) {
             $scope.news = data.data;
             $scope.totalItems = data.count;
-            $scope.featured = data.featured;
-            $scope.advert = data.Advert;
             $ionicLoading.hide();
         });
 

@@ -60,7 +60,6 @@ angular.module('HezecomApp',[
             return text;
         }
     })
-
     .config(function ($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist(['self', new RegExp('^(http?):\/\/(w{3}.)?baptist\.hezecom\.com/.+$')]);
     })
@@ -186,22 +185,22 @@ angular.module('HezecomApp',[
                 },
                 authStatus: false
             })
-            .state('app.iwitnessadd', {
-                url: '/iwitness/add/new',
+            .state('app.appointment', {
+                url: '/appointment/add/new',
                 views: {
                     'menuContent': {
-                        templateUrl: 'app/templates/iwitness/Add.html',
-                        controller: 'iWitnessCtrl'
+                        templateUrl: 'app/templates/forms/Add.html',
+                        controller: 'FormsCtrl'
                     }
                 },
                 authStatus: false
             })
             .state('app.prayer', {
-                url: '/iwitness/prayer/new',
+                url: '/prayer/add/new',
                 views: {
                     'menuContent': {
-                        templateUrl: 'app/templates/iwitness/Add2.html',
-                        controller: 'iWitnessCtrl'
+                        templateUrl: 'app/templates/forms/Add2.html',
+                        controller: 'FormsCtrl'
                     }
                 },
                 authStatus: false
