@@ -4,7 +4,7 @@ app.controller('EventsCtrl', function($scope, $stateParams , HTSServices,APP_SER
     $scope.surl=APP_SERVER.url+'templates/uploads/main/';
     $scope.HTSappLoader = function() {
         $ionicLoading.show({template: 'Loading...'});
-        HTSServices.HezecomGetOne('events/api/'+APP_SERVER.apikey).success(function (data) {
+        HTSServices.HezecomGetOne('appnews/api/news/'+APP_SERVER.apikey).success(function (data) {
             $scope.news = data.data;
             $scope.totalItems = data.count;
             $scope.featured = data.featured;
